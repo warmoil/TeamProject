@@ -76,6 +76,7 @@ public class JavaChatServer extends HttpServlet {
 	@OnClose
 	public void onClose(Session session) {
 		String userName = users.get(session).getName();
+		
 		users.remove(session);
 		sendNotice(userName + "님이 퇴장하셨습니다. 현재 사용자 " + users.size() + "명");
 	}
